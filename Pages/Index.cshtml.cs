@@ -20,7 +20,7 @@ namespace FootballHub.Pages
         {
             try
             {
-                SoccerResult =   await _apiService.CallService(0,0);
+                SoccerResult =   await _apiService.CallService(-3,0);
                 return Page();   
             }
             catch (Exception ex)
