@@ -1,0 +1,15 @@
+body {
+    font-family: 'Sans-serif'
+}
+.navbar{
+    text-align: right;
+    padding:10px;
+}
+
+.auth-btn{
+    text-align:left;
+}
+
+.fitllers{
+    text-align : center;
+}

@@ -1,0 +1,66 @@
+﻿@page
+@model UpcomingMatchModel
+
+@{
+    ViewData["Title"] = "Upcoming Matches";
+}
+
+<link href="~/lib/owlcarousel2-2.3.4/dist/assets/owl.carousel.min.css" rel="stylesheet" />
+ 
+<section id="services" class="bg-light">
+    <div class="container">
+        <div class="fitllers">
+            <a href="/" class="btn btn-outline-primary ">Recent Matches</a>
+            <a href="/UpcomingMatch" class="btn btn-outline-primary active">Upcoming Matches</a>
+        </div>
+    </div>
+</section>
+
+
+
+@if (Model.SoccerResult.Count != 0)
+{
+    foreach (var item in Model.SoccerResult)
+    {
+        <section id="services" class="bg-light">
+            <div class="container">
+                <h2>@item.competition.name</h2>
+                <div class="owl-carousel owl-theme">
+                    @foreach (var match in item.matches)
+                    {
+
+                        DateTime localDateTime = match.utcDate.ToLocalTime();
+                        string formattedDate = localDateTime.ToString("dd.MM HH:mm");
+
+                        <div class="item" style="width:330px;">
+
+                            <match-card date="@formattedDate"
+                                        homeTeam="@match.homeTeam.name"
+                                        homeTeamLogo="@match.homeTeam.crest"
+                                        awayTeam="@match.awayTeam.name"
+                                        awayTeamLogo="@match.awayTeam.crest"
+                                        odds1="0" odds0="0.0" odds2="0.0">
+
+                        </div>
+
+                    }
+                    @if (item.matches.Count == 0)
+                    {
+                        <div class="item" style="width:330px;">
+                            <div class="fc-container">
+                                <p style="font-size:20px;font-weight:bold;">No Event</p>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </section>
+    }
+
+}
+
+@section Scripts {
+    <script src="~/lib/owlcarousel2-2.3.4/dist/owl.carousel.min.js"></script>
+    <script src="~/js/Components/MatchCard/MatchCard.js" asp-append-version="true"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+}

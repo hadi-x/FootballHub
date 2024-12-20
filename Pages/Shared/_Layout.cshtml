@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - FootballHub</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/FootballHub.styles.css" asp-append-version="true" />
+</head>
+ 
+<body>
+   <div class="navbar">
+       <h1>Fotball Hub</h1>
+       <div class="auth-btn">
+        <button type="button" class="btn btn-outline-primary">Register</button>
+        <button type="button" class="btn btn-outline-secondary">Login</button>
+        </div>
+   </div>
+
+    @RenderBody()
+  
+    <footer class="bg-dark text-white text-center py-4">
+        <p>
+            &copy; 2024 Mobile Image.
+            All rights reserved.
+        </p>
+    </footer>
+   
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+ 
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

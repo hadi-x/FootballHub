@@ -1,0 +1,20 @@
+﻿@page
+@model ErrorModel
+@{
+    ViewData["Title"] = "Error";
+}
+
+<div class="container-fluid">
+    <div class="alert alert-success" role="alert">
+        <h4 class="alert-heading">Error</h4>
+        <h2 class="text-danger">@Model.ErrorMessage</h2>
+        <hr>
+        <a href="/" class="btn btn-primary">Retry</a>
+    </div>
+</div>
+ 
+
+
+
+ 
+ 
